@@ -1,0 +1,13 @@
+[dD][aA][tT][aA]*/
+Components/
+Libraries/
+Logs/
+Plugins/
+Project/DerivedData/
+Project/Trash/
+userPreferences*/
+.DS_Store
+*.4DCatalog
+*.txt
+*.zip
+*.sh

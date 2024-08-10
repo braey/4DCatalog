@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><preferences stamp="2">
+	<com.4d>
+		<compiler>
+			<options compilation_path="3" target="all"/>
+			<typage default_for_button="2"/>
+		</compiler>
+		<server>
+			<network>
+				<options publication_name="Catalog" publish_at_startup="false"/>
+				<client_server use_encryption="false"/>
+			</network>
+		</server>
+	</com.4d>
+</preferences>

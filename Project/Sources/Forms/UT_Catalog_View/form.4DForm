@@ -1,0 +1,3698 @@
+{
+	"destination": "detailScreen",
+	"windowTitle": "",
+	"windowSizingX": "variable",
+	"windowMinHeight": 550,
+	"rightMargin": 10,
+	"bottomMargin": 10,
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onMenuSelect",
+		"onCloseBox",
+		"onAfterKeystroke",
+		"onBoundVariableChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"pages": [
+		{
+			"objects": {
+				"tabControl": {
+					"type": "tab",
+					"top": 6,
+					"left": 10,
+					"width": 1132,
+					"height": 695,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSourceTypeHint": "arrayText",
+					"labels": [
+						"Tables",
+						"Relations",
+						"Indexes",
+						"Fields"
+					],
+					"action": "GotoPage",
+					"events": [
+						"onClick"
+					]
+				},
+				"btnHelp": {
+					"type": "button",
+					"text": "?",
+					"top": 27,
+					"left": 1093,
+					"width": 37,
+					"height": 20,
+					"events": [
+						"onClick"
+					],
+					"fontWeight": "bold",
+					"stroke": "#6495ed",
+					"method": "ObjectMethods/btnHelp.4dm",
+					"style": "help",
+					"focusable": true,
+					"borderStyle": "none",
+					"sizingX": "move"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Round_Rectangle1": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 20,
+					"width": 197,
+					"height": 26,
+					"stroke": "#CCCCCC",
+					"borderRadius": 10
+				},
+				"FilterValueTables": {
+					"type": "input",
+					"top": 30,
+					"left": 32,
+					"width": 158,
+					"height": 17,
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/FilterValueTables.4dm",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"placeholder": "Enter table filter here"
+				},
+				"lbTables": {
+					"type": "listbox",
+					"top": 60,
+					"left": 20,
+					"width": 279,
+					"height": 632,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colTables",
+					"currentItemSource": "Form:C1466.currentTable",
+					"currentItemPositionSource": "Form:C1466.currentTablePos",
+					"selectedItemsSource": "Form:C1466.currentTableSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "automatic",
+					"events": [
+						"onClick",
+						"onDisplayDetail",
+						"onDoubleClick",
+						"onSelectionChange",
+						"onHeaderClick"
+					],
+					"method": "ObjectMethods/lbTables.4dm",
+					"sizingX": "grow",
+					"lockedColumnCount": 1,
+					"columns": [
+						{
+							"name": "tableID",
+							"dataSource": "This:C1470.id",
+							"dataSourceTypeHint": "number",
+							"width": 40,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "tableHdr1",
+								"text": "ID",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer1",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableName",
+							"dataSource": "This:C1470.name",
+							"width": 225,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "tableHdr2",
+								"text": "Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer2",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tablePK",
+							"dataSource": "This:C1470.primaryKey",
+							"width": 150,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr3",
+								"text": "Primary Key",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer23",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableRestAccess",
+							"dataSource": "This:C1470.restAccess",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr5",
+								"text": "Rest",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer89",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableInJournal",
+							"dataSource": "This:C1470.inJournal",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr6",
+								"text": "Jour",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer90",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableSyncInfo",
+							"dataSource": "This:C1470.syncInfo",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr7",
+								"text": "Sync",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer91",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableEncryptable",
+							"dataSource": "This:C1470.encryptable",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr8",
+								"text": "Cryp",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer92",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableDeleteTag",
+							"dataSource": "This:C1470.deleteTag",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr4",
+								"text": "Del",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer88",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableVisible",
+							"dataSource": "This:C1470.visible",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr9",
+								"text": "Vis",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer24",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableTrigInsert",
+							"dataSource": "This:C1470.triggerInsert",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr10",
+								"text": "TrI",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer26",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableTrigUpdate",
+							"dataSource": "This:C1470.triggerUpdate",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr11",
+								"text": "TrU",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer27",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "tableTrigDelete",
+							"dataSource": "This:C1470.triggerDelete",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "tableHdr12",
+								"text": "TrD",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer28",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbTableFields": {
+					"type": "listbox",
+					"top": 60,
+					"left": 317,
+					"width": 815,
+					"height": 456,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colTableFields",
+					"currentItemSource": "Form:C1466.currentTableField",
+					"currentItemPositionSource": "Form:C1466.currentTableFieldPos",
+					"selectedItemsSource": "Form:C1466.currentTableFieldSel",
+					"scrollbarHorizontal": "hidden",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onDoubleClick"
+					],
+					"method": "ObjectMethods/lbTableFields.4dm",
+					"sizingX": "grow",
+					"lockedColumnCount": 0,
+					"columns": [
+						{
+							"name": "fieldID",
+							"dataSource": "This:C1470.id",
+							"dataSourceTypeHint": "number",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 55,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr1",
+								"text": "ID",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer3",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldName",
+							"dataSource": "This:C1470.name",
+							"width": 230,
+							"minWidth": 220,
+							"maxWidth": 500,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr2",
+								"text": "Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer4",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldType",
+							"dataSource": "This:C1470.typeString",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 90,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "fieldHdr3",
+								"text": "Type",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer5",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldLength",
+							"dataSource": "This:C1470.limitingLength",
+							"dataSourceTypeHint": "number",
+							"width": 34,
+							"minWidth": 34,
+							"maxWidth": 34,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr4",
+								"text": "Len",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer6",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldPK",
+							"dataSource": "This:C1470.primaryKey",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr5",
+								"text": "PK",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer7",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldUnique",
+							"dataSource": "This:C1470.unique",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr6",
+								"text": "Uni",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer8",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldAutoGen",
+							"dataSource": "This:C1470.autoGenerate",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr7",
+								"text": "Auto",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer9",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldUUID",
+							"dataSource": "This:C1470.UUID",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr8",
+								"text": "UU",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer10",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"header": {
+								"name": "fieldHdr15",
+								"text": "Incr"
+							},
+							"name": "fieldIncr",
+							"width": 40,
+							"textAlign": "center",
+							"footer": {
+								"name": "Footer83"
+							},
+							"dataSourceTypeHint": "boolean",
+							"dataSource": "This:C1470.autoSequence",
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false
+						},
+						{
+							"name": "fieldIndexed",
+							"dataSource": "This:C1470.indexed",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr9",
+								"text": "Ind",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer16",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldInIndex",
+							"dataSource": "This:C1470.inIndex",
+							"dataSourceTypeHint": "number",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr10",
+								"text": "#Ind",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer15",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldVisible",
+							"dataSource": "This:C1470.visible",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr11",
+								"text": "Vis",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer11",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldMandatory",
+							"dataSource": "This:C1470.mandatory",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr12",
+								"text": "Man",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer12",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldEnterable",
+							"dataSource": "This:C1470.enterable",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr13",
+								"text": "Ent",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer13",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldModif",
+							"dataSource": "This:C1470.modifiable",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr14",
+								"text": "Mod",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer14",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"SplitterH1": {
+					"type": "splitter",
+					"top": 526,
+					"left": 313,
+					"width": 824,
+					"height": 5,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "grow"
+				},
+				"lbRelationsByTable": {
+					"type": "listbox",
+					"top": 537,
+					"left": 317,
+					"width": 815,
+					"height": 155,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colRelationsByTable",
+					"currentItemSource": "Form:C1466.currentRelationByTable",
+					"currentItemPositionSource": "Form:C1466.currentRelationByTablePos",
+					"selectedItemsSource": "Form:C1466.currentRelationByTableSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "automatic",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onSelectionChange"
+					],
+					"method": "ObjectMethods/lbRelationsByTable.4dm",
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "relationRef1",
+							"dataSource": "This:C1470.ref",
+							"width": 30,
+							"minWidth": 30,
+							"maxWidth": 40,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr0",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer46",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relation1toN",
+							"dataSource": "This:C1470.name_1toN",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr1",
+								"text": "1 to N name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer17",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationNto1",
+							"dataSource": "This:C1470.name_Nto1",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr2",
+								"text": "N to 1 name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer18",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationDestTable",
+							"dataSource": "This:C1470.destinationTable",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr3",
+								"text": "Destination Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer19",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationDestField",
+							"dataSource": "This:C1470.destinationField",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr4",
+								"text": "Destination Field",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer20",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationSourceTable",
+							"dataSource": "This:C1470.sourceTable",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr5",
+								"text": "Source Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer21",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationSourceField",
+							"dataSource": "This:C1470.sourceField",
+							"width": 130,
+							"minWidth": 130,
+							"maxWidth": 200,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationBTblHdr6",
+								"text": "Source Field",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer22",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"totalTables": {
+					"type": "input",
+					"top": 30,
+					"left": 268,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.oCatalog.iTotalTables",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text6": {
+					"type": "text",
+					"top": 30,
+					"left": 262,
+					"width": 5,
+					"height": 17,
+					"text": "/"
+				},
+				"filterTables": {
+					"type": "input",
+					"top": 30,
+					"left": 220,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.iFiltTables",
+					"dataSourceTypeHint": "number",
+					"textAlign": "right",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"SplitterV1": {
+					"type": "splitter",
+					"top": 51,
+					"left": 307,
+					"width": 5,
+					"height": 646,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "fixed",
+					"splitterMode": "resize",
+					"sizingY": "grow"
+				},
+				"btnClearTablesFilter": {
+					"type": "button",
+					"text": "X",
+					"top": 31,
+					"left": 194,
+					"width": 16,
+					"height": 16,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"stroke": "#c0c0c0",
+					"textPlacement": "center",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Del]",
+					"method": "ObjectMethods/btnClearTablesFilter.4dm"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Round_Rectangle2": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 20,
+					"width": 197,
+					"height": 26,
+					"stroke": "#CCCCCC",
+					"borderRadius": 10
+				},
+				"FilterValueRelations": {
+					"type": "input",
+					"top": 30,
+					"left": 32,
+					"width": 171,
+					"height": 17,
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/FilterValueRelations.4dm",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"placeholder": "Enter relations filter here"
+				},
+				"lbRelationsAll": {
+					"type": "listbox",
+					"top": 60,
+					"left": 20,
+					"width": 1112,
+					"height": 256,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colRelationsAll",
+					"currentItemSource": "Form:C1466.currentRelation",
+					"currentItemPositionSource": "Form:C1466.currentRelationPos",
+					"selectedItemsSource": "Form:C1466.currentRelationSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "hidden",
+					"method": "ObjectMethods/lbRelationsAll.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onSelectionChange"
+					],
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "relationRef",
+							"dataSource": "This:C1470.ref",
+							"width": 45,
+							"minWidth": 45,
+							"maxWidth": 65,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "relationHdr0",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer47",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relation1toN1",
+							"dataSource": "This:C1470.name_1toN",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr1",
+								"text": "1 to N name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer25",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationNto2",
+							"dataSource": "This:C1470.name_Nto1",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHd2",
+								"text": "N to 1 name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer29",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationDestTable1",
+							"dataSource": "This:C1470.destinationTable",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr3",
+								"text": "Dest. Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer30",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationDestField1",
+							"dataSource": "This:C1470.destinationField",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr4",
+								"text": "Destination Field",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer31",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationSourceTable1",
+							"dataSource": "This:C1470.sourceTable",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr5",
+								"text": "Source Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer32",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationSourceField1",
+							"dataSource": "This:C1470.sourceField",
+							"width": 178,
+							"minWidth": 178,
+							"maxWidth": 250,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr6",
+								"text": "Source Field",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer33",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbDestinationFields": {
+					"type": "listbox",
+					"top": 367,
+					"left": 43,
+					"width": 220,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.destinationFields",
+					"currentItemSource": "Form:C1466.currentDestinationField",
+					"currentItemPositionSource": "Form:C1466.currentDestinationFieldPos",
+					"selectedItemsSource": "Form:C1466.currentDestinationFieldSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "hidden",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail"
+					],
+					"method": "ObjectMethods/lbDestinationFields.4dm",
+					"columns": [
+						{
+							"name": "destinationFieldIDs",
+							"dataSource": "This:C1470.id",
+							"width": 30,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "destinationFieldsHdr1",
+								"text": "Id",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer48",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "destinationFieldNames",
+							"dataSource": "This:C1470.name",
+							"width": 188,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "destinationFieldsHdr2",
+								"text": "Field names",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer34",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbSourceFields": {
+					"type": "listbox",
+					"top": 367,
+					"left": 889,
+					"width": 220,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.sourceFields",
+					"currentItemSource": "Form:C1466.currentSourceField",
+					"currentItemPositionSource": "Form:C1466.currentSourceFieldPos",
+					"selectedItemsSource": "Form:C1466.currentSourceFieldSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "hidden",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail"
+					],
+					"method": "ObjectMethods/lbSourceFields.4dm",
+					"sizingX": "move",
+					"columns": [
+						{
+							"name": "sourceFieldIDs",
+							"dataSource": "This:C1470.id",
+							"width": 30,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "sourceFieldsHdr1",
+								"text": "Id",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer49",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "sourceFieldNames",
+							"dataSource": "This:C1470.name",
+							"width": 188,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "sourceFieldsHdr2",
+								"text": "Field Names",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer35",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"relationName_Nto1": {
+					"type": "input",
+					"top": 485,
+					"left": 292,
+					"width": 270,
+					"height": 17,
+					"sizingY": "fixed",
+					"dataSource": "Form:C1466.tRelationName_Nto1",
+					"textAlign": "center",
+					"focusable": false,
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"relationName_1toN": {
+					"type": "input",
+					"top": 485,
+					"left": 579,
+					"width": 270,
+					"height": 17,
+					"sizingY": "fixed",
+					"dataSource": "Form:C1466.tRelationName_1toN",
+					"textAlign": "center",
+					"focusable": false,
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"sizingX": "move"
+				},
+				"Text1": {
+					"type": "text",
+					"top": 485,
+					"left": 265,
+					"width": 18,
+					"height": 17,
+					"sizingY": "fixed",
+					"textAlign": "center",
+					"text": "1"
+				},
+				"TextN": {
+					"type": "text",
+					"top": 485,
+					"left": 857,
+					"width": 18,
+					"height": 17,
+					"sizingY": "fixed",
+					"textAlign": "center",
+					"text": "N",
+					"sizingX": "move"
+				},
+				"totalRelations": {
+					"type": "input",
+					"top": 30,
+					"left": 268,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.oCatalog.iTotalRelations",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text7": {
+					"type": "text",
+					"top": 30,
+					"left": 262,
+					"width": 5,
+					"height": 17,
+					"text": "/"
+				},
+				"filterRelations": {
+					"type": "input",
+					"top": 30,
+					"left": 220,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.iFiltRelations",
+					"dataSourceTypeHint": "number",
+					"textAlign": "right",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"btnDestinationTable": {
+					"type": "button",
+					"text": "",
+					"top": 336,
+					"left": 43,
+					"width": 220,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "bevel",
+					"method": "ObjectMethods/btnDestinationTable.4dm",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": true,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "d",
+					"sizingY": "fixed"
+				},
+				"btnSourceTable": {
+					"type": "button",
+					"text": "",
+					"top": 336,
+					"left": 889,
+					"width": 220,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"style": "bevel",
+					"method": "ObjectMethods/btnSourceTable.4dm",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": true,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "s",
+					"sizingY": "fixed",
+					"sizingX": "move"
+				},
+				"btnClearRelationsFilter": {
+					"type": "button",
+					"text": "X",
+					"top": 31,
+					"left": 194,
+					"width": 16,
+					"height": 16,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"stroke": "#c0c0c0",
+					"textPlacement": "center",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Del]",
+					"method": "ObjectMethods/btnClearRelationsFilter.4dm"
+				},
+				"SplitterH2": {
+					"type": "splitter",
+					"top": 325,
+					"left": 17,
+					"width": 1118,
+					"height": 7,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "grow"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Round_Rectangle3": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 20,
+					"width": 197,
+					"height": 26,
+					"stroke": "#CCCCCC",
+					"borderRadius": 10
+				},
+				"FilterValueIndexes": {
+					"type": "input",
+					"top": 30,
+					"left": 32,
+					"width": 171,
+					"height": 17,
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/FilterValueIndexes.4dm",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"placeholder": "Enter indexes filter here"
+				},
+				"lbIndexesAll": {
+					"type": "listbox",
+					"top": 60,
+					"left": 20,
+					"width": 1112,
+					"height": 276,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colIndexesAll",
+					"currentItemSource": "Form:C1466.currentIndex",
+					"currentItemPositionSource": "Form:C1466.currentIndexPos",
+					"selectedItemsSource": "Form:C1466.currentIndexSel",
+					"scrollbarHorizontal": "automatic",
+					"method": "ObjectMethods/lbIndexesAll.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onSelectionChange"
+					],
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "indexAllRef",
+							"dataSource": "This:C1470.ref",
+							"dataSourceTypeHint": "number",
+							"width": 41,
+							"minWidth": 40,
+							"maxWidth": 65,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr1",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer66",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexAllTableName",
+							"dataSource": "This:C1470.tableName",
+							"width": 250,
+							"minWidth": 230,
+							"maxWidth": 450,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr2",
+								"text": "Table Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer67",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexAllFieldName",
+							"dataSource": "This:C1470.fieldName",
+							"width": 250,
+							"minWidth": 230,
+							"maxWidth": 450,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr3",
+								"text": "Field Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer68",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexAllIsComposite",
+							"dataSource": "This:C1470.isCompositeIndex",
+							"dataSourceTypeHint": "boolean",
+							"width": 80,
+							"minWidth": 60,
+							"maxWidth": 90,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr4",
+								"text": "Composite",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer69",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexAllCompositeIndexName",
+							"dataSource": "This:C1470.indexName",
+							"width": 355,
+							"minWidth": 355,
+							"maxWidth": 400,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr5",
+								"text": "Index Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer70",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexAllType",
+							"dataSource": "This:C1470.type",
+							"width": 121,
+							"minWidth": 121,
+							"maxWidth": 170,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "indexAllHdr6",
+								"text": "Type",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer71",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"SplitterH3": {
+					"type": "splitter",
+					"top": 349,
+					"left": 17,
+					"width": 1118,
+					"height": 7,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "grow"
+				},
+				"lbTables3": {
+					"type": "listbox",
+					"top": 361,
+					"left": 20,
+					"width": 225,
+					"height": 331,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colTables3",
+					"currentItemSource": "Form:C1466.currentTable3",
+					"currentItemPositionSource": "Form:C1466.currentTable3Pos",
+					"selectedItemsSource": "Form:C1466.currentTable3Sel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "automatic",
+					"method": "ObjectMethods/lbTables3.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onDoubleClick",
+						"onSelectionChange"
+					],
+					"columns": [
+						{
+							"name": "table3ID",
+							"dataSource": "This:C1470.id",
+							"dataSourceTypeHint": "number",
+							"width": 35,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "table3Hdr1",
+								"text": "ID",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer36",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3Name",
+							"dataSource": "This:C1470.name",
+							"width": 180,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "table3Hdr2",
+								"text": "Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer37",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3PK",
+							"dataSource": "This:C1470.primaryKey",
+							"width": 150,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "table3Hdr3",
+								"text": "Primary Key",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer38",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3Visible",
+							"dataSource": "This:C1470.visible",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "table3Hdr4",
+								"text": "Vis",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer39",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3TrigInsert",
+							"dataSource": "This:C1470.triggerInsert",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "table3Hdr5",
+								"text": "TrI",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer40",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3TrigUpdate",
+							"dataSource": "This:C1470.triggerUpdate",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "table3Hdr6",
+								"text": "TrU",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer41",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "table3TrigDelete",
+							"dataSource": "This:C1470.triggerDelete",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "table3Hdr7",
+								"text": "TrD",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer42",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbTableIndexesSingle": {
+					"type": "listbox",
+					"top": 376,
+					"left": 257,
+					"width": 320,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.TableIndexesSingle",
+					"currentItemSource": "Form:C1466.currentTableIndexSingle",
+					"currentItemPositionSource": "Form:C1466.currentTableIndexSinglePos",
+					"selectedItemsSource": "Form:C1466.currentTableIndexSingleSel",
+					"scrollbarHorizontal": "hidden",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail"
+					],
+					"method": "ObjectMethods/lbTableIndexesSingle.4dm",
+					"columns": [
+						{
+							"name": "indexRefSingle",
+							"dataSource": "This:C1470.ref",
+							"dataSourceTypeHint": "number",
+							"width": 45,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexTableHdr1",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer43",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexFieldNameSingle",
+							"dataSource": "This:C1470.fieldName",
+							"width": 200,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexTableHdr2",
+								"text": "Field Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer45",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexTypeSingle",
+							"dataSource": "This:C1470.type",
+							"width": 60,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexTableHdr3",
+								"text": "Type",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer72",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbtableIndexesComposite": {
+					"type": "listbox",
+					"top": 376,
+					"left": 590,
+					"width": 542,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.tableIndexesComposite",
+					"currentItemSource": "Form:C1466.currentTableIndexComposite",
+					"currentItemPositionSource": "Form:C1466.currentTableIndexCompositePos",
+					"selectedItemsSource": "Form:C1466.currentTableIndexCompositeSel",
+					"scrollbarHorizontal": "hidden",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail"
+					],
+					"right": 1132,
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "indexRefComposite",
+							"dataSource": "This:C1470.ref",
+							"dataSourceTypeHint": "number",
+							"width": 45,
+							"minWidth": 40,
+							"maxWidth": 70,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexTableHdr4",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer44",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexNameComposite",
+							"dataSource": "This:C1470.indexName",
+							"width": 210,
+							"minWidth": 205,
+							"maxWidth": 350,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "indexTableHdr5",
+								"text": "Index Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer73",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexFieldNameComposite",
+							"dataSource": "This:C1470.fieldName",
+							"width": 212,
+							"minWidth": 205,
+							"maxWidth": 350,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "indexTableHdr6",
+								"text": "Field name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer74",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexTypeComposite",
+							"dataSource": "This:C1470.type",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 100,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "indexTableHdr7",
+								"text": "Type",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer75",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"SingleIndexes": {
+					"type": "input",
+					"top": 356,
+					"left": 384,
+					"width": 57,
+					"height": 17,
+					"dataSource": "Form:C1466.iIndexesSingle",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text": {
+					"type": "text",
+					"top": 356,
+					"left": 263,
+					"width": 120,
+					"height": 17,
+					"text": "Single field indexes"
+				},
+				"Text2": {
+					"type": "text",
+					"top": 356,
+					"left": 593,
+					"width": 120,
+					"height": 17,
+					"text": "Composite indexes"
+				},
+				"CompositeIndexes": {
+					"type": "input",
+					"top": 356,
+					"left": 752,
+					"width": 57,
+					"height": 17,
+					"dataSource": "Form:C1466.iIndexesComposite",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"CompositeIndexesDistinct": {
+					"type": "input",
+					"top": 356,
+					"left": 718,
+					"width": 25,
+					"height": 17,
+					"dataSource": "Form:C1466.iIndexesDistinct",
+					"dataSourceTypeHint": "number",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text3": {
+					"type": "text",
+					"top": 356,
+					"left": 745,
+					"width": 8,
+					"height": 17,
+					"text": "/"
+				},
+				"totalIndexes": {
+					"type": "input",
+					"top": 30,
+					"left": 268,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.oCatalog.iTotalIndexes",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text8": {
+					"type": "text",
+					"top": 30,
+					"left": 262,
+					"width": 5,
+					"height": 17,
+					"text": "/"
+				},
+				"filterIndexes": {
+					"type": "input",
+					"top": 30,
+					"left": 220,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.iFiltIndexes",
+					"dataSourceTypeHint": "number",
+					"textAlign": "right",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"btnClearIndexesFilter": {
+					"type": "button",
+					"text": "X",
+					"top": 31,
+					"left": 194,
+					"width": 16,
+					"height": 16,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"stroke": "#c0c0c0",
+					"textPlacement": "center",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Del]",
+					"method": "ObjectMethods/btnClearIndexesFilter.4dm"
+				}
+			}
+		},
+		{
+			"objects": {
+				"Round_Rectangle4": {
+					"type": "rectangle",
+					"top": 26,
+					"left": 20,
+					"width": 197,
+					"height": 26,
+					"stroke": "#CCCCCC",
+					"borderRadius": 10
+				},
+				"FilterValueFields": {
+					"type": "input",
+					"top": 30,
+					"left": 32,
+					"width": 171,
+					"height": 17,
+					"borderStyle": "none",
+					"hideFocusRing": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"method": "ObjectMethods/FilterValueFields.4dm",
+					"events": [
+						"onAfterKeystroke"
+					],
+					"placeholder": "Enter fields filter here"
+				},
+				"lbFieldsAll": {
+					"type": "listbox",
+					"top": 60,
+					"left": 20,
+					"width": 1112,
+					"height": 276,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.colFieldsAll",
+					"currentItemSource": "Form:C1466.currentField",
+					"currentItemPositionSource": "Form:C1466.currentFieldPos",
+					"selectedItemsSource": "Form:C1466.currentFieldSel",
+					"scrollbarHorizontal": "automatic",
+					"method": "ObjectMethods/lbFieldsAll.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onSelectionChange"
+					],
+					"selectionMode": "single",
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "fieldsAllRef",
+							"dataSource": "This:C1470.ref",
+							"dataSourceTypeHint": "number",
+							"width": 45,
+							"minWidth": 45,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr1",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer65",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllTableName",
+							"dataSource": "This:C1470.tableName",
+							"width": 215,
+							"minWidth": 200,
+							"maxWidth": 300,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "fieldsAllHdr2",
+								"text": "Table Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer64",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllFieldID1",
+							"dataSource": "This:C1470.id",
+							"dataSourceTypeHint": "number",
+							"width": 30,
+							"minWidth": 30,
+							"maxWidth": 40,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr3",
+								"text": "ID",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer50",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllFieldName",
+							"dataSource": "This:C1470.name",
+							"width": 215,
+							"minWidth": 200,
+							"maxWidth": 300,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr4",
+								"text": "Field Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer51",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"truncateMode": "none"
+						},
+						{
+							"name": "fieldsAllType",
+							"dataSource": "This:C1470.typeString",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 90,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "fieldsAllHdr5",
+								"text": "Type",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer52",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllLength",
+							"dataSource": "This:C1470.limitingLength",
+							"dataSourceTypeHint": "number",
+							"width": 34,
+							"minWidth": 34,
+							"maxWidth": 50,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr6",
+								"text": "Len",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer53",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllPK",
+							"dataSource": "This:C1470.primaryKey",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr7",
+								"text": "PK",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer54",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllUnique",
+							"dataSource": "This:C1470.unique",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr8",
+								"text": "Uni",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer55",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllAutoGen",
+							"dataSource": "This:C1470.autoGenerate",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr9",
+								"text": "Auto",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer56",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllUUID",
+							"dataSource": "This:C1470.UUID",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr10",
+								"text": "UU",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer57",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"header": {
+								"name": "fieldsAllHdr11",
+								"text": "Incr"
+							},
+							"name": "fieldsAllIncr",
+							"width": 40,
+							"minWidth": 40,
+							"textAlign": "center",
+							"footer": {
+								"name": "Footer85"
+							},
+							"dataSourceTypeHint": "boolean",
+							"dataSource": "This:C1470.autoSequence",
+							"maxWidth": 50,
+							"enterable": false
+						},
+						{
+							"name": "fieldsAllIndexed",
+							"dataSource": "This:C1470.indexed",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr12",
+								"text": "Ind",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer58",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllIndexType",
+							"dataSource": "This:C1470.indexType",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 85,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr13",
+								"text": "Index",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer82",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllInIndex",
+							"dataSource": "This:C1470.inIndex",
+							"dataSourceTypeHint": "number",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr14",
+								"text": "#Ind",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer59",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"header": {
+								"name": "fieldsAllHdr15",
+								"text": "Rest",
+								"textAlign": "center"
+							},
+							"name": "fieldsAllRest",
+							"width": 40,
+							"footer": {
+								"name": "Footer86"
+							},
+							"verticalAlign": "automatic",
+							"textAlign": "center",
+							"dataSourceTypeHint": "boolean",
+							"dataSource": "This:C1470.restAccess",
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "fieldsAllHdr16",
+								"text": "Style"
+							},
+							"name": "fieldsAllStyle",
+							"width": 40,
+							"footer": {
+								"name": "Footer87"
+							},
+							"textAlign": "center",
+							"dataSourceTypeHint": "boolean",
+							"dataSource": "This:C1470.styledText",
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false
+						},
+						{
+							"name": "fieldsAllVisible",
+							"dataSource": "This:C1470.visible",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr17",
+								"text": "Vis",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer60",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllMandatory",
+							"dataSource": "This:C1470.mandatory",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr18",
+								"text": "Man",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer61",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllEnterable",
+							"dataSource": "This:C1470.enterable",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr19",
+								"text": "Ent",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer62",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldsAllModif",
+							"dataSource": "This:C1470.modifiable",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr20",
+								"text": "Mod",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer63",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbRelationsField": {
+					"type": "listbox",
+					"top": 376,
+					"left": 20,
+					"width": 781,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "rightToLeft",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.relationsField",
+					"currentItemSource": "Form:C1466.currentRelationField",
+					"currentItemPositionSource": "Form:C1466.currentRelationFieldPos",
+					"selectedItemsSource": "Form:C1466.currentRelationFieldSel",
+					"selectionMode": "single",
+					"scrollbarHorizontal": "automatic",
+					"method": "ObjectMethods/lbRelationsField.4dm",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onSelectionChange"
+					],
+					"sizingX": "grow",
+					"columns": [
+						{
+							"name": "relationsFieldRef",
+							"dataSource": "This:C1470.ref",
+							"width": 45,
+							"minWidth": 45,
+							"maxWidth": 60,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "relationHdr2",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer78",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationsField1toN2",
+							"dataSource": "This:C1470.name_1toN",
+							"width": 190,
+							"minWidth": 190,
+							"maxWidth": 300,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr7",
+								"text": "1 to N name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer79",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationsFieldNto3",
+							"dataSource": "This:C1470.name_Nto1",
+							"width": 190,
+							"minWidth": 190,
+							"maxWidth": 300,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHd1",
+								"text": "N to 1 name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer80",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationsFieldDestTable",
+							"dataSource": "This:C1470.destinationTable",
+							"width": 170,
+							"minWidth": 170,
+							"maxWidth": 280,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr8",
+								"text": "Dest. Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer81",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "relationsFieldSourceTable2",
+							"dataSource": "This:C1470.sourceTable",
+							"width": 170,
+							"minWidth": 170,
+							"maxWidth": 280,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "relationHdr10",
+								"text": "Source Table",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer84",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"lbtableIndexesComposite2": {
+					"type": "listbox",
+					"top": 376,
+					"left": 815,
+					"width": 317,
+					"height": 316,
+					"sizingY": "grow",
+					"resizingMode": "legacy",
+					"listboxType": "collection",
+					"movableRows": false,
+					"dataSource": "Form:C1466.tableIndexesComposite2",
+					"currentItemSource": "Form:C1466.currentTableIndexComposite2",
+					"currentItemPositionSource": "Form:C1466.currentTableIndexComposite2Pos",
+					"selectedItemsSource": "Form:C1466.currentTableIndexComposite2Sel",
+					"scrollbarHorizontal": "automatic",
+					"events": [
+						"onLoad",
+						"onClick",
+						"onDisplayDetail",
+						"onDoubleClick"
+					],
+					"sizingX": "move",
+					"columns": [
+						{
+							"name": "indexRefComposite1",
+							"dataSource": "This:C1470.ref",
+							"dataSourceTypeHint": "number",
+							"width": 45,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"enterable": false,
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexTableHdr8",
+								"text": "Ref",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer76",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "indexNameComposite1",
+							"dataSource": "This:C1470.indexName",
+							"width": 257,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "automatic",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "indexTableHdr9",
+								"text": "Index Name",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer77",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						}
+					]
+				},
+				"Text5": {
+					"type": "text",
+					"top": 354,
+					"left": 819,
+					"width": 225,
+					"height": 16,
+					"sizingY": "fixed",
+					"text": "Composite indexes for selected table",
+					"sizingX": "move"
+				},
+				"CompositeIndexes1": {
+					"type": "input",
+					"top": 354,
+					"left": 1051,
+					"width": 57,
+					"height": 17,
+					"sizingY": "fixed",
+					"dataSource": "Form:C1466.iCompositeIdxForField",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"sizingX": "move"
+				},
+				"Text4": {
+					"type": "text",
+					"top": 354,
+					"left": 24,
+					"width": 165,
+					"height": 17,
+					"sizingY": "fixed",
+					"text": "Relations for selected field",
+					"sizingX": "fixed"
+				},
+				"CompositeIndexesDistinct2": {
+					"type": "input",
+					"top": 354,
+					"left": 190,
+					"width": 47,
+					"height": 17,
+					"sizingY": "fixed",
+					"dataSource": "Form:C1466.iRelationsForField",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none",
+					"sizingX": "fixed"
+				},
+				"totalFields": {
+					"type": "input",
+					"top": 30,
+					"left": 268,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.oCatalog.iTotalFields",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"Text9": {
+					"type": "text",
+					"top": 30,
+					"left": 262,
+					"width": 5,
+					"height": 17,
+					"text": "/"
+				},
+				"filterFields": {
+					"type": "input",
+					"top": 30,
+					"left": 220,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.iFiltFields",
+					"dataSourceTypeHint": "number",
+					"textAlign": "right",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
+				},
+				"btnClearFieldsFilter": {
+					"type": "button",
+					"text": "X",
+					"top": 31,
+					"left": 194,
+					"width": 16,
+					"height": 16,
+					"events": [
+						"onClick"
+					],
+					"style": "custom",
+					"stroke": "#c0c0c0",
+					"textPlacement": "center",
+					"focusable": false,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Del]",
+					"method": "ObjectMethods/btnClearFieldsFilter.4dm"
+				},
+				"SplitterH4": {
+					"type": "splitter",
+					"top": 346,
+					"left": 17,
+					"width": 1118,
+					"height": 5,
+					"events": [
+						"onClick"
+					],
+					"sizingX": "grow"
+				}
+			}
+		}
+	],
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	},
+	"geometryStamp": 777,
+	"windowMinWidth": 1140
+}
