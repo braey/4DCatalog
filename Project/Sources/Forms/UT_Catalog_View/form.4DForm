@@ -498,7 +498,7 @@
 					"currentItemSource": "Form:C1466.currentTableField",
 					"currentItemPositionSource": "Form:C1466.currentTableFieldPos",
 					"selectedItemsSource": "Form:C1466.currentTableFieldSel",
-					"scrollbarHorizontal": "hidden",
+					"scrollbarHorizontal": "visible",
 					"events": [
 						"onLoad",
 						"onClick",
@@ -507,7 +507,7 @@
 					],
 					"method": "ObjectMethods/lbTableFields.4dm",
 					"sizingX": "grow",
-					"lockedColumnCount": 0,
+					"lockedColumnCount": 2,
 					"columns": [
 						{
 							"name": "fieldID",
@@ -792,6 +792,37 @@
 							}
 						},
 						{
+							"name": "fieldIndexType",
+							"dataSource": "This:C1470.indexType",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 90,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "fieldHdr16",
+								"text": "Index",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer94",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
 							"name": "fieldInIndex",
 							"dataSource": "This:C1470.inIndex",
 							"dataSourceTypeHint": "number",
@@ -814,6 +845,96 @@
 							},
 							"footer": {
 								"name": "Footer15",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldRestAccess",
+							"dataSource": "This:C1470.restAccess",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr17",
+								"text": "Rest",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer95",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldStyledText",
+							"dataSource": "This:C1470.styledText",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr18",
+								"text": "Style",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer96",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
+							"name": "fieldStoredOutsideDB",
+							"dataSource": "This:C1470.storedOutsideDB",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldHdr19",
+								"text": "Outs",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer97",
 								"stroke": "automatic",
 								"fill": "automatic",
 								"textAlign": "automatic",
@@ -3207,6 +3328,36 @@
 							}
 						},
 						{
+							"name": "fieldsAllOutsideDB",
+							"dataSource": "This:C1470.storedOutsideDB",
+							"dataSourceTypeHint": "boolean",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 50,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllHdr21",
+								"text": "Outs",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer93",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
 							"name": "fieldsAllMandatory",
 							"dataSource": "This:C1470.mandatory",
 							"dataSourceTypeHint": "boolean",
@@ -3693,6 +3844,6 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 777,
+	"geometryStamp": 789,
 	"windowMinWidth": 1140
 }

@@ -41,11 +41,8 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))
 	
 	$bFormToPasteboard:=False:C215
 	
-	
 	// ++++++++++++++++++++++++++++++++++++++++++ begin create menu ++++++++++++++++++++++++++++++++++
 	$tMenuBarMain:=Create menu:C408
-	
-	
 	
 	$tMenuBarRef:=Get menu bar reference:C979(Frontmost process:C327)
 	$tCopyMenuBarRef:=Create menu:C408($tMenuBarRef)
@@ -100,6 +97,7 @@ Else
 							
 							POST OUTSIDE CALL:C329(Current process:C322)
 							
+							
 						: (FORM Event:C1606.code=On Outside Call:K2:11)
 							$oReturn:=New object:C1471
 							UT_SingleMethodTemplate(New object:C1471("tSubroutine"; "SelectCatalog"; "oReturn"; $oReturn))
@@ -122,32 +120,35 @@ Else
 						: (FORM Event:C1606.code=On Menu Selected:K2:14)
 							
 							
-							
-							
-							
-							
-							
 					End case 
 					
 				: (Form:C1466.tFormName="UT_Catalog_Help")  // In case you have more than 1 form
 					
 					
 					
-					
-					
 				Else 
-					// code for 
+					ALERT:C41("Un-supported Form Name")
 					
 			End case 
 		Else 
 			// below are all the object methods
 			
 			Case of 
-				: (FORM Event:C1606.objectName="btnHelp")
+				: (Form:C1466.tFormName="UT_Catalog_View")  // In case you have more than 1 form
 					Case of 
-						: (FORM Event:C1606.code=On Clicked:K2:4)
-							
+						: (FORM Event:C1606.objectName="btnHelp")
+							Case of 
+								: (FORM Event:C1606.code=On Clicked:K2:4)
+									
+							End case 
 					End case 
+					
+				: (Form:C1466.tFormName="UT_Catalog_Test")  // In case you have more than 1 form
+					
+					
+				Else 
+					ALERT:C41("Un-supported Form Name")
+					
 			End case 
 		End if 
 		
@@ -162,19 +163,11 @@ Else
 					
 				: ($oParam.tSubroutine="ProcessCatalogFile")
 					
-					
 				: ($oParam.tSubroutine=".................")
 					
-					
-					
 				: ($oParam.tSubroutine=".................")
-					
-					
 					
 				: ($oParam.tSubroutine="CreateFormLayoutObject")
-					
-					
-					
 					
 				Else 
 					ALERT:C41("Un-supported sub-routine")

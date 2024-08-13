@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
 // -------------------------------------------------------------------------------------------------
 // Method name   : UT_Catalog_View
 // Description    
@@ -116,70 +116,83 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))  // this is the e
 	$tHelpTxt:=$tHelpTxt+"<button class=\"tablinks\" onclick=\"openTab(event, 'FieldProps')\">Field properties</button></div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"Tables\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Tables</h3>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of tables by typing in the filter box, filters on table ID and Name</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of tables by typing in the filter box, filter acts on ID and Name columns</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Select a table to see the table's fields and relations</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a field to see the field's relations and composite indexes in Tab 4</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a relation to see the details of the relation in Tab 2</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>Double click on a table to see table's index information in Tab 3</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>Double click on a table to see table's index information in Tab 3</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/4D-Database-capabilities.300-5416815.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"Relations\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Relations</h3>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of relations by typing in the filter box, filters on the content of any column</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of relations by typing in the filter box, filter acts on the content of any column</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a relation to see the details of the relation</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Click on the buttons above the field lists to return to Tab 1 with clicked table name selected</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a field in either field list to see the field's relations and composite indexes in Tab 4</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a field in either field list to see the field's relations and composite indexes in Tab 4</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/Types-of-relations.300-5416816.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"Indexes\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Indexes</h3>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of indexes by typing in the filter box, filters on Ref, Table Name, Field Name and Index Name</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of indexes by typing in the filter box, filter acts on Ref, Table Name, Field Name and Index Name columns</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Double Click on an index to see the details (single or composite) of the clicked index</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a table to see the details of the indexes (single or composite) of the table</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>Double Click on a table to see the details of the indexes (single or composite) of the table</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/Creating-and-modifying-indexes.300-5416820.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"Fields\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Fields</h3>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of fields by typing in the filter box, filters on Ref, Table Name, Field Name and Type</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can reduce the selection of fields by typing in the filter box, filter acts on Ref, Table Name, Field Name and Type columns</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Select any field to see the field's relations and composite indexes of that field, if any</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>Double Click on any relation to see the details of the selected relation in Tab 2</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>Double Click on any composite index to show all index information of the table that the composite index belongs to</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>Double Click on any composite index to show all index information of the table that the composite index belongs to</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/4D-field-types.300-5416822.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"Menu\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Menu and Shortcuts</h3>"
 	$tHelpTxt:=$tHelpTxt+"<p>You can navigate between the different tabs using Shortcuts Cmd-T, Cmd-R, Cmd-I or Cmd-F</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in the same form using Cmd-L or selecting Load Catalog.. in the File menu</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in a new form holding down the Option-key while selecting Load Catalog.. in the File menu</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in a NEW form holding down the Option-key while selecting Load Catalog.. in the File menu</p></div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"TableProps\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Table Properties</h3>"
 	$tHelpTxt:=$tHelpTxt+"<table style=\"width:100%\">"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Primary Key</td><td>Name of the primary key field of the selected table</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Rest</td><td>Table is exposed as a rest resource or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Jour</td><td>Table is included in the log file or not</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>Sync</td><td>Replication is enabled for this table or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Cryp</td><td>Table contents can be encrypted or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Del</td><td>Records for this table are definitively deleted or not</td></tr>"
-	$tHelpTxt:=$tHelpTxt+"<tr><td>Sync</td><td>Replication is enable for this table or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Vis</td><td>Table is set visible or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>TrI</td><td>Trigger on saving new record is set active or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>TrU</td><td>Trigger on updating record is set active or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>TrD</td><td>Trigger on deleting record is set active or not</td></tr></table>"
-	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
-	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv20R5/4D/20-R5/Table-properties.300-6855121.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/Table-properties.300-5416823.en.html>See 4D Documentation</a>"
 	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"FieldProps\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Field Properties</h3>"
 	$tHelpTxt:=$tHelpTxt+"<table style=\"width:100%\">"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Type</td><td>The field type</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Len</td><td>The field length (for Alpha fields only)</td></tr>"
-	$tHelpTxt:=$tHelpTxt+"<tr><td>PK</td><td>Checked if the field is the primnary key of the selected the table</td></tr>"
-	$tHelpTxt:=$tHelpTxt+"<tr><td>Uni</td><td>Field contents is mandatory unique for every row</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>PK</td><td>Checked if the field is the primary key of the selected the table</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>Uni</td><td>Field contents is has to be unique for every row</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Auto</td><td>Field contents is auto generated (UUID fields)</td></tr>"
-	$tHelpTxt:=$tHelpTxt+"<tr><td>UU</td><td>Field contents is </td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>UU</td><td>Field contents is a Universal Unique Identifier (UUID)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Incr</td><td>Field contents is automatically incremented for each row </td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Ind</td><td>Field is indexed</td></tr>"
-	$tHelpTxt:=$tHelpTxt+"<tr><td>Index</td><td>Index type</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>Index</td><td>Index type (Auto / B-Tree / Cluster)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>#Ind</td><td>Number of times the field is indexed (single + composite indexes)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Rest</td><td>Field is exposed as a rest resource or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Style</td><td>Queries on this field will ignore multi style tags or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Vis</td><td>Field is visible or not</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>Outs</td><td>Field contents is stored outside of the database or not (BLOB and PICTURE fields only)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Man</td><td>Field id mandatory or not</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Ent</td><td>Field is enterable or not </td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Mod</td><td>Field is modifiable or not (#Display only)</td></tr></table>"
-	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p>"
-	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv20R5/4D/20-R5/Field-properties.300-6855112.en.html>See 4D Documentation</a>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://doc.4d.com/4Dv19/4D/19/Field-properties.300-5416814.en.html>See 4D Documentation</a>"
 	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<script>"
 	$tHelpTxt:=$tHelpTxt+"function openTab(evt, tabName) {"
@@ -219,7 +232,7 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))  // this is the e
 	// ++++++++++++++++++++++++++++++++++++++ end populate FORM object +++++++++++++++++++++++++++++++++
 	// +++++++++++++++++++++++++++++++++++++++++++ display Form ++++++++++++++++++++++++++++++++++++++++
 	
-	If ($oFormLayout.destination=Null:C1517)
+	If (OB Is empty:C1297($oFormLayout))
 		$iWindowRef:=Open form window:C675("UT_Catalog_View")
 		$oForm.iMainWindowRef:=$iWindowRef
 		$oForm.tFormName:="UT_Catalog_View"
@@ -471,7 +484,7 @@ Else
 								
 								SET WINDOW RECT:C444($iCenterWidth-($iNewWindowWidth/2); $iCenterHeight-($iNewWindowHeight/2); $iCenterWidth-($iNewWindowWidth/2)+$iNewWindowWidth; $iCenterHeight-($iNewWindowHeight/2)+$iNewWindowHeight; $iWindowRef)
 								
-								If ($oFormLayout.destination=Null:C1517)
+								If (OB Is empty:C1297($oFormLayout))
 									$oForm.tFormName:="UT_Catalog_Help"
 									DIALOG:C40("UT_Catalog_Help"; $oForm)
 									
@@ -556,6 +569,18 @@ Else
 					
 					
 				: ((FORM Event:C1606.objectName="lbTableFields") | (FORM Event:C1606.objectName="lbFieldsAll"))
+					If (FORM Event:C1606.code=On Display Detail:K2:22)
+						If (This:C1470.indexed)
+							$colTemp1:=Form:C1466.colIndexesAll.query("tableName = :1 and fieldName = :2"; This:C1470.tableName; This:C1470.name)
+							If ($colTemp1.length>=1)
+								This:C1470.indexType:=$colTemp1[0].type
+							Else 
+								This:C1470.indexType:=""
+							End if 
+						Else 
+							This:C1470.indexType:=""
+						End if 
+					End if 
 					
 					If (FORM Event:C1606.objectName="lbTableFields")
 						LISTBOX GET CELL POSITION:C971(*; "lbTableFields"; $iCol; $iRow)
@@ -576,18 +601,6 @@ Else
 					Else   //  FORM Event.objectName="lbFieldsAll"
 						LISTBOX GET CELL POSITION:C971(*; "lbFieldsAll"; $iCol; $iRow)
 						Case of 
-							: (FORM Event:C1606.code=On Display Detail:K2:22)
-								If (This:C1470.indexed)
-									$colTemp1:=Form:C1466.colIndexesAll.query("tableName = :1 and fieldName = :2"; This:C1470.tableName; This:C1470.name)
-									If ($colTemp1.length>=1)
-										This:C1470.indexType:=$colTemp1[0].type
-									Else 
-										This:C1470.indexType:=""
-									End if 
-								Else 
-									This:C1470.indexType:=""
-								End if 
-								
 							: (FORM Event:C1606.code=On Selection Change:K2:29)
 								If ($iRow>0)
 									$tQueryString:="(destinationTable = :1 and destinationField = :2) or(sourceTable = :3 and sourceField = :4))"
@@ -600,7 +613,6 @@ Else
 									
 								End if 
 						End case 
-						
 					End if 
 					
 					
@@ -1197,6 +1209,7 @@ Else
 					$oField.inIndex:=0
 					$oField.limitingLength:=0
 					$oField.typeString:=""
+					$oField.storedOutsideDB:=False:C215
 					
 					$iPosition:=Find in array:C230($atAttribFieldName; "name")
 					$oField.name:=$atAttribFieldVal{$iPosition}
@@ -1259,6 +1272,14 @@ Else
 					If ($iPosition>0)
 						$oField.limitingLength:=Num:C11($atAttribFieldVal{$iPosition})
 					End if 
+					
+					$iPosition:=Find in array:C230($atAttribFieldName; "outside_blob")
+					If ($iPosition>0)
+						If ($atAttribFieldVal{$iPosition}="True")
+							$oField.storedOutsideDB:=True:C214
+						End if 
+					End if 
+					
 					
 					Case of 
 						: ($oField.type=10)
@@ -1890,7 +1911,7 @@ Else
 						$oFormObject.pages:=New collection:C1472()
 						$oFormObject.$4d:=New object:C1471()
 						$oFormObject.editor:=New object:C1471()
-						$oFormObject.geometryStamp:=777
+						$oFormObject.geometryStamp:=789
 						$oFormObject.windowMinWidth:=1140
 						
 						$oFormSubObject:=New object:C1471
@@ -2377,11 +2398,11 @@ Else
 						$oPageObject.currentItemSource:="Form:C1466.currentTableField"
 						$oPageObject.currentItemPositionSource:="Form:C1466.currentTableFieldPos"
 						$oPageObject.selectedItemsSource:="Form:C1466.currentTableFieldSel"
-						$oPageObject.scrollbarHorizontal:="hidden"
+						$oPageObject.scrollbarHorizontal:="visible"
 						$oPageObject.events:=New collection:C1472("onLoad"; "onClick"; "onDisplayDetail"; "onDoubleClick")
 						$oPageObject.method:="UT_Catalog_View"
 						$oPageObject.sizingX:="grow"
-						$oPageObject.lockedColumnCount:=0
+						$oPageObject.lockedColumnCount:=2
 						$oPageObject.columns:=New collection:C1472
 						//+++++++++++++++++++++++++++
 						//Start list box columns
@@ -2667,6 +2688,34 @@ Else
 						$oColumnObj.footer:=$oObjectTemp
 						$colColumns.push($oColumnObj)
 						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldIndexType"
+						$oColumnObj.dataSource:="This:C1470.indexType"
+						$oColumnObj.width:=60
+						$oColumnObj.minWidth:=60
+						$oColumnObj.maxWidth:=90
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oColumnObj.events:=New collection:C1472("onClick"; "onDataChange")
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldHdr16"
+						$oObjectTemp.text:="Index"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer94"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="fieldInIndex"
 						$oColumnObj.dataSource:="This:C1470.inIndex"
 						$oColumnObj.dataSourceTypeHint:="number"
@@ -2689,6 +2738,96 @@ Else
 						$oColumnObj.header:=$oObjectTemp
 						$oObjectTemp:=New object:C1471
 						$oObjectTemp.name:="Footer15"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldRestAccess"
+						$oColumnObj.dataSource:="This:C1470.restAccess"
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=40
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.controlType:="checkbox"
+						$oColumnObj.truncateMode:="none"
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldHdr17"
+						$oObjectTemp.text:="Rest"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer95"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldStyledText"
+						$oColumnObj.dataSource:="This:C1470.styledText"
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=40
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.controlType:="checkbox"
+						$oColumnObj.truncateMode:="none"
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldHdr18"
+						$oObjectTemp.text:="Style"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer96"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldStoredOutsideDB"
+						$oColumnObj.dataSource:="This:C1470.storedOutsideDB"
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=40
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.controlType:="checkbox"
+						$oColumnObj.truncateMode:="none"
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldHdr19"
+						$oObjectTemp.text:="Outs"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer97"
 						$oObjectTemp.stroke:="automatic"
 						$oObjectTemp.fill:="automatic"
 						$oObjectTemp.textAlign:="automatic"
@@ -5098,6 +5237,36 @@ Else
 						$oColumnObj.footer:=$oObjectTemp
 						$colColumns.push($oColumnObj)
 						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldsAllOutsideDB"
+						$oColumnObj.dataSource:="This:C1470.storedOutsideDB"
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=50
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.controlType:="checkbox"
+						$oColumnObj.truncateMode:="none"
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldsAllHdr21"
+						$oObjectTemp.text:="Outs"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer93"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="fieldsAllMandatory"
 						$oColumnObj.dataSource:="This:C1470.mandatory"
 						$oColumnObj.dataSourceTypeHint:="boolean"
@@ -5584,7 +5753,6 @@ Else
 					End if 
 					
 					
-					
 				: ($oParam.tSubroutine="CreateFormLayoutObjectHelp")
 					If (True:C214)
 						var $colColumns; $colEntryOrder : Collection
@@ -5650,6 +5818,7 @@ Else
 						$oFormObject.pages.push(New object:C1471("objects"; $oObjects))
 						$oFormObject.tMyFormName:="UT_Catalog_Help"
 					End if 
+					
 					
 			End case 
 		End if 

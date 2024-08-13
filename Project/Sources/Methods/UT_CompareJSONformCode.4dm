@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
 // -------------------------------------------------------------------------------------------------
 // Method name   : UT_CompareJSONFormCode
 // Description    

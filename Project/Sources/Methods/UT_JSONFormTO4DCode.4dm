@@ -1,9 +1,9 @@
-//%attributes = {}
+//%attributes = {"shared":true}
 // -------------------------------------------------------------------------------------------------
 // Method name   : UT_JSONformTo4DCode
 // Description.  : Converts a JSON 4D Form document into 4D Code to create to form in code
 //
-//               !!!!! ATTENTION - every trace you find is still an unresolved case !!!!!
+//               !!!!! ATTENTION - every "Trace"-cmd you find is still an unresolved case !!!!!
 //
 // Parameters
 //
@@ -36,8 +36,8 @@ If (ok=1)
 		ALERT:C41("The selected folder doesn't contain a 4D form")
 		
 	Else 
-		$bSaveDocuments:=True:C214
 		$tResultText:=""  // this will hold the 4D code for the creation of the selected form
+		$bSaveDocuments:=True:C214
 		$tDesktopFolder:="Compare4DForms"  // the 4D code for the form and the form itself will be saved in this folder on your desktop
 		
 		$tMethodName:="UT_Catalog_View"  // enter method name to change all 4D assigned method names to this one
