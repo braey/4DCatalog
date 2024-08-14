@@ -1,31 +1,4 @@
 //%attributes = {}
-// -------------------------------------------------------------------------------------------------
-// Method name   : UT_SingleMethodTemplate
-// Description   : Template for a single method to hold all code for:
-//                   - call from menu
-//                   - creating Form Layout Object
-//                   - creating Form Object
-//                   - opening window and dialog (multiple forms possible)
-//                   - handling form method(s)
-//                   - handling object methods
-//                   - handling calls from within method (subroutines of functions)
-// 
-// Parameters    : optional $1 - Object
-//
-// -------------------------------------------------------------------------------------------------
-// All rights    : STC - Software, Training and Consultancy - Belgium
-// -------------------------------------------------------------------------------------------------
-// Created by    : Bruno Raeymaekers
-// Date and time : 07/18/24, 9:00:00
-// -------------------------------------------------------------------------------------------------
-// ©2024 - STC bvba, All rights reserved.
-// This software and source code is subject to copyright protection as literary work pursuant to the
-// Belgian Copyright Laws and International Conventions. No part of this software may be reproduced
-// or copied, in whole or in part, in any form or by any means. No part of this software may be used
-// except under a valid licence agreement or without the prior written permission of STC bvba.
-// Any infringement of the copyright in software and source code will be prosecuted to the full 
-// extent permissible by law.
-// -------------------------------------------------------------------------------------------------
 
 C_OBJECT:C1216($1; $oParam)
 

@@ -1,25 +1,4 @@
 //%attributes = {"shared":true}
-// -------------------------------------------------------------------------------------------------
-// Method name   : UT_Catalog_View
-// Description    
-// 
-//
-// Parameters
-//
-// -------------------------------------------------------------------------------------------------
-// All rights    : STC - Software, Training and Consultancy - Belgium
-// -------------------------------------------------------------------------------------------------
-// Created by    : Bruno Raeymaekers
-// Date and time : 03/07/24, 9:42:40
-// -------------------------------------------------------------------------------------------------
-// ©2024 - STC bvba, All rights reserved.
-// This software and source code is subject to copyright protection as literary work pursuant to the
-// Belgian Copyright Laws and International Conventions. No part of this software may be reproduced
-// or copied, in whole or in part, in any form or by any means. No part of this software may be used
-// except under a valid licence agreement or without the prior written permission of STC bvba.
-// Any infringement of the copyright in software and source code will be prosecuted to the full 
-// extent permissible by law.
-// -------------------------------------------------------------------------------------------------
 
 C_OBJECT:C1216($1; $oParam)
 
@@ -92,7 +71,6 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))  // this is the e
 	// +++++++++++++++++++++++++++++++++++++++++ end create menu ++++++++++++++++++++++++++++++++++++++
 	// +++++++++++++++++++++++++++++++++++++++++ create Help text +++++++++++++++++++++++++++++++++++++
 	
-	
 	$tHelpTxt:="<!DOCTYPE html><html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
 	$tHelpTxt:=$tHelpTxt+"<style>* {box-sizing: border-box} body {font-family: \"Lato\", sans-serif;}"
 	$tHelpTxt:=$tHelpTxt+"/* Style the tab */"
@@ -154,7 +132,10 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))  // this is the e
 	$tHelpTxt:=$tHelpTxt+"<h3>Menu and Shortcuts</h3>"
 	$tHelpTxt:=$tHelpTxt+"<p>You can navigate between the different tabs using Shortcuts Cmd-T, Cmd-R, Cmd-I or Cmd-F</p>"
 	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in the same form using Cmd-L or selecting Load Catalog.. in the File menu</p>"
-	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in a NEW form holding down the Option-key while selecting Load Catalog.. in the File menu</p></div>"
+	$tHelpTxt:=$tHelpTxt+"<p>You can load a different catalog file in a NEW form holding down the Option-key while selecting Load Catalog.. in the File menu</p>"
+	$tHelpTxt:=$tHelpTxt+"<p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p><p>&nbsp</p>"
+	$tHelpTxt:=$tHelpTxt+"<a href=https://github.com/braey/4DCatalog>See Project in Github</a>"
+	$tHelpTxt:=$tHelpTxt+"</div>"
 	$tHelpTxt:=$tHelpTxt+"<div id=\"TableProps\" class=\"tabcontent\">"
 	$tHelpTxt:=$tHelpTxt+"<h3>Table Properties</h3>"
 	$tHelpTxt:=$tHelpTxt+"<table style=\"width:100%\">"
@@ -5752,7 +5733,6 @@ Else
 						$oFormObject.tMyFormName:="UT_Catalog_View"
 					End if 
 					
-					
 				: ($oParam.tSubroutine="CreateFormLayoutObjectHelp")
 					If (True:C214)
 						var $colColumns; $colEntryOrder : Collection
@@ -5818,7 +5798,6 @@ Else
 						$oFormObject.pages.push(New object:C1471("objects"; $oObjects))
 						$oFormObject.tMyFormName:="UT_Catalog_Help"
 					End if 
-					
 					
 			End case 
 		End if 

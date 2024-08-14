@@ -1,25 +1,4 @@
 //%attributes = {"shared":true}
-// -------------------------------------------------------------------------------------------------
-// Method name   : UT_CompareJSONFormCode
-// Description    
-// 
-//
-// Parameters
-//
-// -------------------------------------------------------------------------------------------------
-// All rights    : STC - Software, Training and Consultancy - Belgium
-// -------------------------------------------------------------------------------------------------
-// Created by    : Bruno Raeymaekers
-// Date and time : 04/13/24, 14:05:36
-// -------------------------------------------------------------------------------------------------
-// ©2024 - STC bvba, All rights reserved.
-// This software and source code is subject to copyright protection as literary work pursuant to the
-// Belgian Copyright Laws and International Conventions. No part of this software may be reproduced
-// or copied, in whole or in part, in any form or by any means. No part of this software may be used
-// except under a valid licence agreement or without the prior written permission of STC bvba.
-// Any infringement of the copyright in software and source code will be prosecuted to the full 
-// extent permissible by law.
-// -------------------------------------------------------------------------------------------------
 
 var $oParam; $oFormLayout; $oFormObject : Object
 var $tJSONText; $tDesktopPath; $tGeneratedFile; $tCommand; $tIn; $tOut; $tError : Text

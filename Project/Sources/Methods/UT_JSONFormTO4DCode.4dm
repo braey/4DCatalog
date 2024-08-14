@@ -1,26 +1,4 @@
 //%attributes = {"shared":true}
-// -------------------------------------------------------------------------------------------------
-// Method name   : UT_JSONformTo4DCode
-// Description.  : Converts a JSON 4D Form document into 4D Code to create to form in code
-//
-//               !!!!! ATTENTION - every "Trace"-cmd you find is still an unresolved case !!!!!
-//
-// Parameters
-//
-// -------------------------------------------------------------------------------------------------
-// All rights    : STC - Software, Training and Consultancy - Belgium
-// -------------------------------------------------------------------------------------------------
-// Created by    : Bruno Raeymaekers
-// Date and time : 03/20/24, 9:18:33
-// -------------------------------------------------------------------------------------------------
-// ©2024 - STC bvba, All rights reserved.
-// This software and source code is subject to copyright protection as literary work pursuant to the
-// Belgian Copyright Laws and International Conventions. No part of this software may be reproduced
-// or copied, in whole or in part, in any form or by any means. No part of this software may be used
-// except under a valid licence agreement or without the prior written permission of STC bvba.
-// Any infringement of the copyright in software and source code will be prosecuted to the full 
-// extent permissible by law.
-// -------------------------------------------------------------------------------------------------
 
 var $colPages; $colColumns; $colPathElements : Collection
 var $oFormObjectOrig; $oPage; $oColumn; $oObjectTemp; $oObjectTemp2 : Object
