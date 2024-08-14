@@ -3705,7 +3705,7 @@
 					"width": 225,
 					"height": 16,
 					"sizingY": "fixed",
-					"text": "Composite indexes for selected table",
+					"text": "Composite indexes for selected field",
 					"sizingX": "move"
 				},
 				"CompositeIndexes1": {

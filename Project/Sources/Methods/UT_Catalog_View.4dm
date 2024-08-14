@@ -1204,7 +1204,7 @@ Else
 					$oField.modifiable:=True:C214
 					$oField.primaryKey:=False:C215
 					$oField.indexed:=False:C215
-					$oField.restAccess:=False:C215
+					$oField.restAccess:=True:C214
 					$oField.styledText:=False:C215
 					$oField.inIndex:=0
 					$oField.limitingLength:=0
@@ -1256,8 +1256,8 @@ Else
 					
 					$iPosition:=Find in array:C230($atAttribFieldName; "hide_in_REST")
 					If ($iPosition>0)
-						If ($atAttribFieldVal{$iPosition}="False")
-							$oField.restAccess:=True:C214
+						If ($atAttribFieldVal{$iPosition}="True")
+							$oField.restAccess:=False:C215
 						End if 
 					End if 
 					
@@ -5618,7 +5618,7 @@ Else
 						$oPageObject.width:=225
 						$oPageObject.height:=16
 						$oPageObject.sizingY:="fixed"
-						$oPageObject.text:="Composite indexes for selected table"
+						$oPageObject.text:="Composite indexes for selected field"
 						$oPageObject.sizingX:="move"
 						$oObjects.Text5:=$oPageObject
 						
