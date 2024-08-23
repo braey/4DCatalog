@@ -11,6 +11,7 @@
 	"markerFooter": 240,
 	"events": [
 		"onLoad",
+		"onClick",
 		"onOutsideCall",
 		"onDoubleClick",
 		"onMenuSelect",
@@ -118,9 +119,9 @@
 						"onSelectionChange",
 						"onHeaderClick"
 					],
-					"method": "ObjectMethods/lbTables.4dm",
 					"sizingX": "grow",
 					"lockedColumnCount": 1,
+					"method": "ObjectMethods/lbTables.4dm",
 					"columns": [
 						{
 							"name": "tableID",
@@ -1366,6 +1367,31 @@
 					"shortcutAlt": false,
 					"shortcutKey": "[Del]",
 					"method": "ObjectMethods/btnClearTablesFilter.4dm"
+				},
+				"Text10": {
+					"type": "text",
+					"top": 30,
+					"left": 317,
+					"width": 85,
+					"height": 16,
+					"text": "Fields in table"
+				},
+				"filterTables1": {
+					"type": "input",
+					"top": 30,
+					"left": 405,
+					"width": 40,
+					"height": 17,
+					"dataSource": "Form:C1466.colTableFields.length",
+					"dataSourceTypeHint": "number",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "none"
 				}
 			}
 		},
@@ -3844,6 +3870,6 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 789,
+	"geometryStamp": 821,
 	"windowMinWidth": 1140
 }

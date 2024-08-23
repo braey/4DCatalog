@@ -1,1 +1,1 @@
-UT_CATALOG_View
+UT_Catalog_View
