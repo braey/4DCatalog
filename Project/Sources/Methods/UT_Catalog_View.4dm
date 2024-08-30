@@ -12,12 +12,12 @@
 // -------------------------------------------------------------------------------------------------
 C_OBJECT:C1216($1; $oParam)
 
-var $colTables; $colFields; $colIndexes; $colRelations; $colTemp1; $colTemp2 : Collection
+var $colIndexes; $colRelations; $colTemp1; $colTemp2 : Collection
 var $oCatalog; $oTable; $oField; $oIndex; $oRelation; $oFormLayout; $oForm; $oReturn; $oParam : Object
-var $bStopProcessing; $bStopField; $bStopCompositeIndex; $bStopRelation; $bCompositeIndex; $bFormToPasteboard; $bHelpWindowIsOpen : Boolean
+var $bStopProcessing; $bStopField; $bStopCompositeIndex; $bStopRelation; $bCompositeIndex; $bKeywordIndex; $bFormToPasteboard; $bHelpWindowIsOpen : Boolean
 var $tXMLElementRefRelation; $tXMLElementRefRelationField; $tXMLElementRefRelationTable; $tXMLElementIndexTableName : Text
 var $tDocument; $tXMLText; $tXMLRef; $tXMLElementRef; $tXMLElementFieldRef; $tXMLElementIndexField; $tXMLElementFieldExtraRef; $tHelpTxt : Text
-var $tName; $tValue; $tChildName; $tChildValue; $tFieldExtraName; $tFieldExtraValue; $tIndexName; $tIndexType; $tKind; $tPKName; $tJSONText : Text
+var $tName; $tValue; $tChildName; $tChildValue; $tFieldExtraName; $tFieldExtraValue; $tIndexName; $tIndexType; $tIndexKind; $tKind; $tPKName; $tJSONText : Text
 var $tTableName; $tFieldName; $tQueryString; $tMenuBarRef; $tCopyMenuBarRef; $tMenuBarMain; $tMenuBarFile; $tMenuBarEdit; $tMenuBarCatalog : Text
 var $iAttributes; $iPosition; $iCntrAttrib; $iCol; $iRow; $iCntrTables; $iCntrRelations; $iCntrIndexes; $iProcessID; $iProgress; $iWindowRef : Integer
 var $iLeft; $iTop; $iRight; $iBottom; $iScreen; $iCurrentWindowWidth; $iCurrentWindowHeight; $iCenterWidth; $iCenterHeight : Integer
@@ -173,6 +173,7 @@ If ((Count parameters:C259=0) & (FORM Event:C1606=Null:C1517))  // this is the e
 	$tHelpTxt:=$tHelpTxt+"<tr><td>UU</td><td>Field contents is a Universal Unique Identifier (UUID)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Incr</td><td>Field contents is automatically incremented for each row </td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Ind</td><td>Field is indexed</td></tr>"
+	$tHelpTxt:=$tHelpTxt+"<tr><td>Keyw</td><td>Field has regular + keyword index</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Index</td><td>Index type (Auto / B-Tree / Cluster)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>#Ind</td><td>Number of times the field is indexed (single + composite indexes)</td></tr>"
 	$tHelpTxt:=$tHelpTxt+"<tr><td>Rest</td><td>Field is exposed as a rest resource or not</td></tr>"
@@ -899,10 +900,11 @@ Else
 					$iCntrRelations:=0
 					$iCntrIndexes:=0
 					
-					$colTables:=New collection:C1472
 					$colRelations:=New collection:C1472
 					$colIndexes:=New collection:C1472
-					$colFields:=New collection:C1472
+					
+					$oCatalog.colTables:=New collection:C1472
+					$oCatalog.colFields:=New collection:C1472
 					
 					$tXMLElementRef:=DOM Get first child XML element:C723($tXMLRef; $tName; $tValue)  // this is "schema", but we skip it
 					
@@ -985,7 +987,7 @@ Else
 											: ($tChildName="field")
 												$oTable.colFields:=New collection:C1472
 												
-												EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessField"; "node"; $tXMLElementFieldRef; "collection"; $oTable.colFields; "collectionAllFields"; $colFields; "tableName"; $oTable.name; "tableID"; $oTable.id))
+												EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessField"; "node"; $tXMLElementFieldRef; "collection"; $oTable.colFields; "tableName"; $oTable.name; "tableID"; $oTable.id; "oCatalog"; $oCatalog))
 												
 												$bStopField:=False:C215
 												Repeat 
@@ -996,7 +998,7 @@ Else
 													Else 
 														Case of 
 															: ($tChildName="field")
-																EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessField"; "node"; $tXMLElementFieldRef; "collection"; $oTable.colFields; "collectionAllFields"; $colFields; "tableName"; $oTable.name; "tableID"; $oTable.id))
+																EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessField"; "node"; $tXMLElementFieldRef; "collection"; $oTable.colFields; "tableName"; $oTable.name; "tableID"; $oTable.id; "oCatalog"; $oCatalog))
 																
 															: ($tChildName="primary_key")
 																$tPKName:=""
@@ -1059,7 +1061,7 @@ Else
 												
 										End case 
 										
-										$colTables.push($oTable)
+										$oCatalog.colTables.push($oTable)
 										$iCntrTables:=$iCntrTables+1
 										
 									End if 
@@ -1091,6 +1093,18 @@ Else
 										$tIndexName:=""
 									End if 
 									
+									$iPosition:=Find in array:C230($atAttribIndexName; "kind")
+									If ($iPosition>0)
+										$tIndexKind:=$atAttribIndexValue{$iPosition}
+										If ($tIndexKind="keywords")
+											$bKeywordIndex:=True:C214
+										Else 
+											$bKeywordIndex:=False:C215
+										End if 
+									Else 
+										$bKeywordIndex:=False:C215
+									End if 
+									
 									$iPosition:=Find in array:C230($atAttribIndexName; "type")
 									If ($iPosition>0)
 										$tIndexType:=$atAttribIndexValue{$iPosition}
@@ -1108,10 +1122,11 @@ Else
 									
 									$tXMLElementIndexField:=DOM Get first child XML element:C723($tXMLElementRef; $tName; $tValue)
 									If ($tName="field_ref")
-										EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessIndex"; "node"; $tXMLElementIndexField; "collection"; $colIndexes; "isCompositeIndex"; False:C215; "indexName"; $tIndexName; "indexType"; $tIndexType))
+										EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessIndex"; "node"; $tXMLElementIndexField; "collection"; $colIndexes; "isCompositeIndex"; False:C215; "indexName"; $tIndexName; "indexType"; $tIndexType; "isKeywordIndex"; $bKeywordIndex; "oCatalog"; $oCatalog))
 										
 										// update table.field with index info
-										$colTemp1:=$colTables.query("name = :1"; $colIndexes[$colIndexes.length-1].tableName)
+										$colTemp1:=$oCatalog.colTables.query("name = :1"; $colIndexes[$colIndexes.length-1].tableName)
+										
 										If ($colTemp1.length=1)
 											$colTemp2:=$colTemp1[0].colFields.query("name = :1"; $colIndexes[$colIndexes.length-1].fieldName)
 											If ($colTemp2.length=1)
@@ -1136,10 +1151,10 @@ Else
 													$bStopCompositeIndex:=True:C214
 													
 												Else 
-													EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessIndex"; "node"; $tXMLElementIndexField; "collection"; $colIndexes; "isCompositeIndex"; True:C214; "indexName"; $tIndexName; "indexType"; $tIndexType))
+													EXECUTE METHOD:C1007(Current method name:C684; *; New object:C1471("tSubroutine"; "ProcessIndex"; "node"; $tXMLElementIndexField; "collection"; $colIndexes; "isCompositeIndex"; True:C214; "indexName"; $tIndexName; "indexType"; $tIndexType; "isKeywordIndex"; $bKeywordIndex))
 													
 													// update table.field with index info
-													$colTemp1:=$colTables.query("name = :1"; $colIndexes[$colIndexes.length-1].tableName)
+													$colTemp1:=$oCatalog.colTables.query("name = :1"; $colIndexes[$colIndexes.length-1].tableName)
 													If ($colTemp1.length=1)
 														$colTemp2:=$colTemp1[0].colFields.query("name = :1"; $colIndexes[$colIndexes.length-1].fieldName)
 														If ($colTemp2.length=1)
@@ -1175,11 +1190,9 @@ Else
 					
 					If (($iCntrTables=$oCatalog.iTotalTables) & ($iCntrRelations=$oCatalog.iTotalRelations) & ($iCntrIndexes=$oCatalog.iTotalIndexes))
 						// OK, this is how it should be
-						$oCatalog.iTotalFields:=$colFields.length
-						$oCatalog.colTables:=$colTables
+						$oCatalog.iTotalFields:=$oCatalog.colFields.length
 						$oCatalog.colRelations:=$colRelations
 						$oCatalog.colIndexes:=$colIndexes
-						$oCatalog.colFields:=$colFields
 					Else 
 						$oParam.oReturn.ok:=0
 						If ($iCntrTables#$oCatalog.iTotalTables)
@@ -1215,6 +1228,7 @@ Else
 					$oField.modifiable:=True:C214
 					$oField.primaryKey:=False:C215
 					$oField.indexed:=False:C215
+					$oField.isKeywordIndex:=False:C215
 					$oField.restAccess:=True:C214
 					$oField.styledText:=False:C215
 					$oField.inIndex:=0
@@ -1368,17 +1382,19 @@ Else
 						End if 
 					End if 
 					
-					$oField.ref:=$oParam.collectionAllFields.length+1
+					$oField.ref:=$oParam.oCatalog.colFields.length+1
 					$oParam.collection.push($oField)
+					
 					$oField.tableName:=$oParam.tableName
 					$oField.tableID:=$oParam.tableID
-					$oParam.collectionAllFields.push($oField)
+					$oParam.oCatalog.colFields.push($oField)
 					
 					
 				: ($oParam.tSubroutine="ProcessIndex")
 					$oIndex:=New object:C1471
 					$oIndex.isCompositeIndex:=$oParam.isCompositeIndex
 					$oIndex.indexName:=$oParam.indexName
+					$oIndex.isKeywordIndex:=$oParam.isKeywordIndex
 					$oIndex.type:=$oParam.indexType
 					$oIndex.fieldName:=""
 					$oIndex.tableName:=""
@@ -1408,6 +1424,13 @@ Else
 						$iPosition:=Find in array:C230($atAttribIndexTableName; "name")
 						$oIndex.tableName:=$atAttribIndexTableValue{$iPosition}
 						
+					End if 
+					
+					If ($oIndex.isKeywordIndex)
+						$colTemp1:=$oParam.oCatalog.colFields.indices("tableName = :1 and name = :2"; $oIndex.tableName; $oIndex.fieldName)
+						If ($colTemp1.length=1)
+							$oParam.oCatalog.colFields[$colTemp1[0]].isKeywordIndex:=True:C214
+						End if 
 					End if 
 					
 					$oIndex.ref:=$oParam.collection.length+1
@@ -1915,7 +1938,7 @@ Else
 						$oFormObject.pages:=New collection:C1472()
 						$oFormObject.$4d:=New object:C1471()
 						$oFormObject.editor:=New object:C1471()
-						$oFormObject.geometryStamp:=821
+						$oFormObject.geometryStamp:=845
 						$oFormObject.windowMinWidth:=1140
 						
 						$oFormSubObject:=New object:C1471
@@ -2690,6 +2713,36 @@ Else
 						$oObjectTemp.textAlign:="automatic"
 						$oObjectTemp.verticalAlign:="automatic"
 						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldIndexKeyword"
+						$oColumnObj.dataSource:="This:C1470.isKeywordIndex"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=40
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oColumnObj.events:=New collection:C1472("onClick"; "onDataChange")
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldHdr20"
+						$oObjectTemp.text:="Keyw"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer98"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.truncateMode:="none"
 						$colColumns.push($oColumnObj)
 						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="fieldIndexType"
@@ -4058,8 +4111,8 @@ Else
 						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="indexAllCompositeIndexName"
 						$oColumnObj.dataSource:="This:C1470.indexName"
-						$oColumnObj.width:=355
-						$oColumnObj.minWidth:=355
+						$oColumnObj.width:=330
+						$oColumnObj.minWidth:=330
 						$oColumnObj.maxWidth:=400
 						$oColumnObj.enterable:=False:C215
 						$oColumnObj.stroke:="automatic"
@@ -4083,10 +4136,40 @@ Else
 						$oColumnObj.footer:=$oObjectTemp
 						$colColumns.push($oColumnObj)
 						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="indexAllIsComposite1"
+						$oColumnObj.dataSource:="This:C1470.isKeywordIndex"
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.width:=60
+						$oColumnObj.minWidth:=60
+						$oColumnObj.maxWidth:=60
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.controlType:="checkbox"
+						$oColumnObj.truncateMode:="none"
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="indexAllHdr7"
+						$oObjectTemp.text:="Keyword"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer100"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="indexAllType"
 						$oColumnObj.dataSource:="This:C1470.type"
-						$oColumnObj.width:=121
-						$oColumnObj.minWidth:=121
+						$oColumnObj.width:=86
+						$oColumnObj.minWidth:=60
 						$oColumnObj.maxWidth:=170
 						$oColumnObj.stroke:="automatic"
 						$oColumnObj.fill:="automatic"
@@ -5144,6 +5227,35 @@ Else
 						$oObjectTemp.textAlign:="automatic"
 						$oObjectTemp.verticalAlign:="automatic"
 						$oColumnObj.footer:=$oObjectTemp
+						$colColumns.push($oColumnObj)
+						$oColumnObj:=New object:C1471
+						$oColumnObj.name:="fieldsAllIndexKeyword"
+						$oColumnObj.dataSource:="This:C1470.isKeywordIndex"
+						$oColumnObj.width:=40
+						$oColumnObj.minWidth:=40
+						$oColumnObj.maxWidth:=40
+						$oColumnObj.enterable:=False:C215
+						$oColumnObj.stroke:="automatic"
+						$oColumnObj.fill:="automatic"
+						$oColumnObj.alternateFill:="automatic"
+						$oColumnObj.textAlign:="center"
+						$oColumnObj.verticalAlign:="automatic"
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="fieldsAllKeyword"
+						$oObjectTemp.text:="Keyw"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.header:=$oObjectTemp
+						$oObjectTemp:=New object:C1471
+						$oObjectTemp.name:="Footer99"
+						$oObjectTemp.stroke:="automatic"
+						$oObjectTemp.fill:="automatic"
+						$oObjectTemp.textAlign:="automatic"
+						$oObjectTemp.verticalAlign:="automatic"
+						$oColumnObj.footer:=$oObjectTemp
+						$oColumnObj.dataSourceTypeHint:="boolean"
+						$oColumnObj.truncateMode:="none"
 						$colColumns.push($oColumnObj)
 						$oColumnObj:=New object:C1471
 						$oColumnObj.name:="fieldsAllIndexType"

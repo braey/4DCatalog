@@ -793,6 +793,39 @@
 							}
 						},
 						{
+							"name": "fieldIndexKeyword",
+							"dataSource": "This:C1470.isKeywordIndex",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "fieldHdr20",
+								"text": "Keyw",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer98",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"dataSourceTypeHint": "boolean",
+							"truncateMode": "none"
+						},
+						{
 							"name": "fieldIndexType",
 							"dataSource": "This:C1470.indexType",
 							"width": 60,
@@ -2141,8 +2174,8 @@
 						{
 							"name": "indexAllCompositeIndexName",
 							"dataSource": "This:C1470.indexName",
-							"width": 355,
-							"minWidth": 355,
+							"width": 330,
+							"minWidth": 330,
 							"maxWidth": 400,
 							"enterable": false,
 							"stroke": "automatic",
@@ -2166,10 +2199,40 @@
 							}
 						},
 						{
+							"name": "indexAllIsComposite1",
+							"dataSource": "This:C1470.isKeywordIndex",
+							"dataSourceTypeHint": "boolean",
+							"width": 60,
+							"minWidth": 60,
+							"maxWidth": 60,
+							"enterable": false,
+							"controlType": "checkbox",
+							"truncateMode": "none",
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "indexAllHdr7",
+								"text": "Keyword",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer100",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							}
+						},
+						{
 							"name": "indexAllType",
 							"dataSource": "This:C1470.type",
-							"width": 121,
-							"minWidth": 121,
+							"width": 86,
+							"minWidth": 60,
 							"maxWidth": 170,
 							"stroke": "automatic",
 							"fill": "automatic",
@@ -3232,6 +3295,35 @@
 							}
 						},
 						{
+							"name": "fieldsAllIndexKeyword",
+							"dataSource": "This:C1470.isKeywordIndex",
+							"width": 40,
+							"minWidth": 40,
+							"maxWidth": 40,
+							"enterable": false,
+							"stroke": "automatic",
+							"fill": "automatic",
+							"alternateFill": "automatic",
+							"textAlign": "center",
+							"verticalAlign": "automatic",
+							"header": {
+								"name": "fieldsAllKeyword",
+								"text": "Keyw",
+								"stroke": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"footer": {
+								"name": "Footer99",
+								"stroke": "automatic",
+								"fill": "automatic",
+								"textAlign": "automatic",
+								"verticalAlign": "automatic"
+							},
+							"dataSourceTypeHint": "boolean",
+							"truncateMode": "none"
+						},
+						{
 							"name": "fieldsAllIndexType",
 							"dataSource": "This:C1470.indexType",
 							"width": 60,
@@ -3870,6 +3962,6 @@
 			"View 1": {}
 		}
 	},
-	"geometryStamp": 821,
+	"geometryStamp": 845,
 	"windowMinWidth": 1140
 }
