@@ -1548,12 +1548,20 @@ Else
 						
 						// Prep collections page 2
 						Form:C1466.colRelationsAll:=Form:C1466.oCatalog.colRelations
-						Form:C1466.currentRelation:=Form:C1466.colRelationsAll[0]
-						Form:C1466.currentRelationPos:=1
-						Form:C1466.currentRelationSel:=Form:C1466.colRelationsAll[0]
+						If (Form:C1466.colRelationsAll.length>0)
+							Form:C1466.currentRelation:=Form:C1466.colRelationsAll[0]
+							Form:C1466.currentRelationPos:=1
+							Form:C1466.currentRelationSel:=Form:C1466.colRelationsAll[0]
+						End if 
 						
 						// Prep collections page 3
 						Form:C1466.colIndexesAll:=Form:C1466.oCatalog.colIndexes
+						If (Form:C1466.colIndexesAll.length>0)
+							Form:C1466.currentIndex:=Form:C1466.colIndexesAll[0]
+							Form:C1466.currentIndexPos:=1
+							Form:C1466.currentIndexSel:=Form:C1466.colIndexesAll[0]
+						End if 
+						
 						Form:C1466.iIndexesSingle:=0
 						Form:C1466.iIndexesComposite:=0
 						Form:C1466.iIndexesDistinct:=0
